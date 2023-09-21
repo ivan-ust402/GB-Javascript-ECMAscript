@@ -6,9 +6,13 @@
 найти минимальное число в массиве, решение задание должно состоять из одной
 строки кода.
 */
-const arr1 = [1, 5, 7, 9];
+console.log("Задание 1");
 
+const arr1 = [1, 5, 7, 9];
 console.log("Минимальное значение в массиве:", Math.min(...arr1));
+
+console.log("");
+
 
 
 /* 
@@ -19,7 +23,36 @@ console.log("Минимальное значение в массиве:", Math.m
 на 1. Значение счетчика должно быть доступно только через методы объекта,
 а не напрямую. 
 */
+console.log("Задание 2");
 
+function createCounter(counter) {
+    return {
+        printCounter() {
+            return counter;
+        },
+        increment() {
+            counter++;
+        },
+        decrement() {
+            counter--;
+        }
+    }
+}
+
+const myCounter = createCounter(5);
+console.log("Начальное значение счетчика:", myCounter.printCounter());
+myCounter.increment();
+myCounter.increment();
+myCounter.increment();
+myCounter.increment();
+myCounter.increment();
+console.log("Значение счетчика после увеличения:", myCounter.printCounter());
+myCounter.decrement();
+myCounter.decrement();
+myCounter.decrement();
+console.log("Значение счетчика после уменьшения:", myCounter.printCounter());
+
+console.log("");
 /* 
 Задание 3
  Дополнительное задание, выполняем только если проходили работу с DOM.
