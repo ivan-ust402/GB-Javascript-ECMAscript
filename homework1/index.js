@@ -65,10 +65,11 @@ const rootElement = document.getElementById('root');
 const targetElement = findElementByClass(rootElement, 'my-class');
 console.log(targetElement);
 */
+console.log("Задание 3");
 
 const rootElement = document.getElementById('root');
 const targetElement = findElementByClass(rootElement, 'my-class');
-console.log(targetElement);
+console.log("Искомый элемент:", targetElement);
 
 // function findElementByClass(rootElement, searchElement) {
 //     const children = rootElement.children;
@@ -94,3 +95,5 @@ function findElementByClass(rootElement, searchElementbyClass) {
         }
     }   
 }
+
+console.log("");
