@@ -65,3 +65,32 @@ const rootElement = document.getElementById('root');
 const targetElement = findElementByClass(rootElement, 'my-class');
 console.log(targetElement);
 */
+
+const rootElement = document.getElementById('root');
+const targetElement = findElementByClass(rootElement, 'my-class');
+console.log(targetElement);
+
+// function findElementByClass(rootElement, searchElement) {
+//     const children = rootElement.children;
+//     console.log(children);
+//     for (let i = 0; i < children.length; i++) {
+//         if (children[i].className === searchElement) {
+//             return children[i];
+//         } else {
+//             return findElementByClass(children[i], searchElement);
+//         }
+//     }
+// }
+
+function findElementByClass(rootElement, searchElementbyClass) {
+    if (rootElement.className === searchElementbyClass) {
+        return rootElement;
+    }
+    const children = rootElement.children;
+    for (let i = 0; i < children.length; i++) {
+        const res = findElementByClass(children[i], searchElementbyClass);
+        if (res) {
+            return res;
+        }
+    }   
+}
