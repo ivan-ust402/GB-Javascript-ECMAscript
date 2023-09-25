@@ -84,7 +84,7 @@ console.log("Искомый элемент:", targetElement);
 // }
 
 function findElementByClass(rootElement, searchElementbyClass) {
-    if (rootElement.className === searchElementbyClass) {
+    if (rootElement.classList.contains(searchElementbyClass)) {
         return rootElement;
     }
     const children = rootElement.children;
@@ -92,8 +92,9 @@ function findElementByClass(rootElement, searchElementbyClass) {
         const res = findElementByClass(children[i], searchElementbyClass);
         if (res) {
             return res;
-        }
-    }   
+        } 
+    } 
+    return null;  
 }
 
 console.log("");
