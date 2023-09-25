@@ -97,4 +97,42 @@ function findElementByClass(rootElement, searchElementbyClass) {
     return null;  
 }
 
+
+
 console.log("");
+
+const Obj = {
+    checkThis () {
+        console.log(this);
+    },
+
+    checkThisVar: function () {
+        console.log(this);
+    },
+    checkThisVar1: () => {
+        console.log(this);
+    }
+
+}
+
+Obj.checkThis();
+Obj.checkThisVar();
+Obj.checkThisVar1();
+
+function checkThis () {
+    console.log(this);
+}
+
+checkThis();
+
+const checkThisVar = function () {
+    console.log(this);
+}
+
+checkThisVar();
+
+const checkThisVar1 = () => {
+    console.log(this);
+}
+
+checkThisVar1();
