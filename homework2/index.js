@@ -28,7 +28,9 @@ class Book {
 }
 
 const book = new Book("BookName1", "Author1", 123);
+const book2 = new Book("BookName2", "Author2", 333);
 book.displayInfo(); // "Title: BookName1, Author: Author1, Pages: 123"
+book2.displayInfo();
 
 console.log("");
 
@@ -49,5 +51,19 @@ student.displayInfo(); // "Name: John Smith, Age: 16, Grade: 10th grade"
 */
 console.log("Задание 2");
 
+class Student {
+    constructor(name, age, grade) {
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
+    }
+    displayInfo() {
+        console.log(`Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`);
+    }
+}
+const student = new Student("John Smith", 16, "10th grade");
+const student2 = new Student("Mike Freeman", 15, "9th grade");
+student.displayInfo(); // "Name: John Smith, Age: 16, Grade: 10th grade"
+student2.displayInfo();
 
 console.log("");
