@@ -16,6 +16,19 @@ book.displayInfo(); // "Title: BookName1, Author: Author1, Pages: 123"
 */
 console.log("Задание 1");
 
+class Book {
+    constructor(title, author, pages) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+    }
+    displayInfo() {
+        console.log(`Title: ${this.title}, Author: ${this.author}, Pages: ${this.pages}`);
+    }
+}
+
+const book = new Book("BookName1", "Author1", 123);
+book.displayInfo(); // "Title: BookName1, Author: Author1, Pages: 123"
 
 console.log("");
 
