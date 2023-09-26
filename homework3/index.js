@@ -87,18 +87,40 @@ class Product {
 }
 
 class Order {
-    constructor(id, products) {
+    constructor(id) {
+        this.id = id;
+        this.products = [];
+    }
 
+    addProduct(product) {
+        this.validate(product);
+        this.products.push(product);
+    }
+
+    getTotalPrice() {
+        const totalPrice = this.products.reduce((acc, el) => acc += el.price * el.quantity, 0);
+        console.log(`Products total price: ${totalPrice}`);
+    }
+
+    validate(product) {
+        if (!(product instanceof Product)) {
+            throw new Error('Not instance of Product class!');
+        }
     }
 }
 
 const order = new Order(12345);
+// console.log(order);
 
 const product1 = new Product("Phone", 500, 2);
 order.addProduct(product1);
 
+// order.addProduct(employee);
+
 const product2 = new Product("Headphones", 100, 1);
 order.addProduct(product2);
+
+// console.log(order);
 
 console.log(order.getTotalPrice()); // Вывод: 1100
 
