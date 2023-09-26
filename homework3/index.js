@@ -20,7 +20,32 @@ manager.displayInfo(); // "Name: John Doe, Department: Sales"
 */
 console.log("Задание 1");
 
+class Employee {
+    constructor(name) {
+        this.name = name;
+    }
 
+    displayInfo() {
+        console.log(`Name: ${this.name}`);
+    }
+}
+
+class Manager extends Employee {
+    constructor(name, department) {
+        super(name);
+        this.department = department;
+    }
+
+    displayInfo() {
+        console.log(`Name: ${this.name}, Department: ${this.department}`);
+    }
+}
+
+const employee = new Employee("John Smith");
+employee.displayInfo(); // "Name: John Smith"
+
+const manager = new Manager("Jane Doe", "Sales");
+manager.displayInfo(); // "Name: John Doe, Department: Sales"
 
 console.log("");
 
@@ -53,6 +78,28 @@ console.log(order.getTotalPrice()); // Вывод: 1100
 */
 console.log("Задание 2");
 
+class Product {
+    constructor(name, price, quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+}
 
+class Order {
+    constructor(id, products) {
+
+    }
+}
+
+const order = new Order(12345);
+
+const product1 = new Product("Phone", 500, 2);
+order.addProduct(product1);
+
+const product2 = new Product("Headphones", 100, 1);
+order.addProduct(product2);
+
+console.log(order.getTotalPrice()); // Вывод: 1100
 
 console.log("");
