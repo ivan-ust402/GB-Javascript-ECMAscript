@@ -87,9 +87,11 @@ class Product {
 }
 
 class Order {
+    products = [];
+    
     constructor(id) {
         this.id = id;
-        this.products = [];
+        // this.products = [];
     }
 
     addProduct(product) {
@@ -101,7 +103,7 @@ class Order {
         return this.products.reduce((acc, el) => acc += el.price * el.quantity, 0);
     }
 
-    validate(product) {
+    validateInputProduct(product) {
         if (!(product instanceof Product)) {
             throw new Error('Not instance of Product class!');
         }
