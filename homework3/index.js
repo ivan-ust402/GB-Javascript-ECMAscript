@@ -98,8 +98,7 @@ class Order {
     }
 
     getTotalPrice() {
-        const totalPrice = this.products.reduce((acc, el) => acc += el.price * el.quantity, 0);
-        console.log(`Products total price: ${totalPrice}`);
+        return this.products.reduce((acc, el) => acc += el.price * el.quantity, 0);
     }
 
     validate(product) {
@@ -122,6 +121,6 @@ order.addProduct(product2);
 
 // console.log(order);
 
-console.log(order.getTotalPrice()); // Вывод: 1100
+console.log(`Вывод: ${order.getTotalPrice()}`); // Вывод: 1100
 
 console.log("");
