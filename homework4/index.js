@@ -29,7 +29,10 @@ function getUserData(ID) {
             console.log(response);
             console.log("");
         }) 
-        .catch(error => console.log(error));
+        .catch(error => {
+            console.log(error);
+            console.log("");
+        });
 }
 
 getUserData(5);
@@ -60,8 +63,75 @@ saveUserData использует fetch для отправки данных о 
 
 Работа должна быть выполнена с API: https://reqres.in/
 */
-console.log("Задание 2");
 
 
+/* const user = {
+    "name": "John Doe",
+    "job": "unknown"
+  };
+  
+function saveUserData(user) {
+    const url = 'https://reqres.in/api/users';
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(user),
+    };
 
-console.log("");
+    fetch(url, options)
+    .then(response => {
+        console.log("Задание 2");
+        if(response.status === 201) {
+            console.log('User data saved successfully');
+            console.log("");
+        } else {
+            throw new Error('Что-то пошло не так!');
+        }
+    })
+    .catch(error => {
+      console.log(error.message);
+      console.log("");
+    });
+
+}
+    
+saveUserData(user); */
+
+function saveUserData(user) {
+    const url = 'https://reqres.in/api/users';
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(user),
+    };
+
+    return fetch(url, options)
+    .then(response => {
+        console.log("Задание 2");
+        if(response.status === 201) {
+            return response;
+        } else {
+            throw new Error('Что-то пошло не так!');
+        }
+    })
+
+}
+    
+const user = {
+    "name": "John Doe",
+    "job": "unknown"
+  };
+  
+saveUserData(user)
+    .then(() => {
+      console.log('User data saved successfully');
+      console.log("");
+    })
+    .catch(error => {
+      console.log(error.message);
+      console.log("");
+    });
