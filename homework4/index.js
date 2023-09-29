@@ -65,7 +65,9 @@ saveUserData использует fetch для отправки данных о 
 */
 
 
-/* const user = {
+/* 
+// Один из вариантов
+const user = {
     "name": "John Doe",
     "job": "unknown"
   };
@@ -135,3 +137,58 @@ saveUserData(user)
       console.log(error.message);
       console.log("");
     });
+
+/* Задание 4 (из семинара)
+Необходимо получить список пользователей с сервера, отсортировать их
+в алфавитном порядке и вывести в тег ul (его необходимо создать в html) 
+на странице данный список пользователей.
+API: https://jsonplaceholder.typicode.com/users
+*/
+
+const usersURL = 'https://jsonplaceholder.typicode.com/users';
+async function fetchUsers(url) {
+    await fetch(url)
+        .then(response => {
+            if(response.ok) {
+                console.log("Задание 4 (из семинара)")
+                return  response.json();
+            } else {
+                throw new Error();
+            }   
+        })
+        .then(response => {
+            response.sort((a, b) => {
+                return a.name.localeCompare(b.name);
+            });
+            console.log(response);
+            addNamesToHTML(response);
+            console.log("Возник вопрос, который я оставил в комментариях перед функцией addNamesToHTML");
+            console.log("");
+        })
+        .catch(error => {
+            console.log(error);
+            console.log("Возник вопрос, который я оставил в комментариях перед функцией addNamesToHTML");
+        })
+}
+
+// ??? Вопрос: Как получить объект response из промиса 
+// и работать с ним вне цепочки then? 
+// Почему возник такой вопрос: следуя принципам SOLID, неочень хорошо 
+// прям в функции, где мы посылаем запрос на сервер и получаем 
+// ответ, осуществлять еще какие-либо действия (принцип единственной 
+// ответственности(если не ошибаюсь)), а так как я не смог из 
+// промиса вытащить полученный обЪект, мне пришлось прямо в then
+// отрисовывать элементы, это очень неочень хорошо
+// Подскажите, пожалуйста, как делать правильно 
+
+function addNamesToHTML(response) {
+    const ul = document.createElement('ul');
+    for (let i = 0; i < response.length; i++) {
+        const li = document.createElement('li');
+        li.innerHTML = response[i].name;
+        ul.append(li);                
+    }
+    document.body.append(ul);
+}
+
+fetchUsers(usersURL);
